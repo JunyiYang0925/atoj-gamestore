@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% block title %}Play{% endblock %}
+{% load static from staticfiles %}
+{% block header %}
+  {{ block.super }}
+  <head>
+  <script type='text/javascript'>
+    $(document).ready(function(){
+
+      // postMessage listener
+      $(window).on('message', function(e) {
+        var data = e.originalEvent.data;
+
+        // Make sure that message is from the game's url
+        var gameOrigin = getOrigin('{{game_url}}');
+        if (e.originalEvent.origin === gameOrigin) {
+
+          // Determine action based on received messageType
+          switch(data.messageType) {
+            case 'SCORE':
+              handleScoreRequest(data.score);
+              break;
+
+            case 'SAVE':
+              handleSaveRequest(data.gameState);
+              break;
+
+            case 'LOAD_REQUEST':
+              handleLoadRequest();
+              break;
+
+            case 'SETTING':
+              // Set window dimensions
+              $('#game_window').width(data.options.width);
+              $('#game_window').height(data.options.height);
+              break;
+          }
+        }
+        else {
+          console.warn('Mismatched postMessage origins.');
+        }
+      }); // end of $.on()
+
+      function getOrigin(url) {
+        // Gets origin from url, ex.
+        // http://site.com/my/page.html (url)
+        // http://site.com/ (origin)
+        var pathArray = url.split( '/' );
+        var protocol = pathArray[0];
+        var host = pathArray[2];
+        var originUrl = protocol + '//' + host;
+        return originUrl;
+      }
+
+      function handleLoadRequest() {
+        // Fetch saved game state if it exists
+        // and send approriate message to the game.
+        $.ajax({
+
+          url: {% url 'game_load_request' %},
+          data: 'gameID={{game_id}}',
+
+          success: function(gameState) {
+            var data = JSON.parse(gameState)
+            document.getElementById('game_window').contentWindow
+            .postMessage({'messageType': 'LOAD', 'gameState': data},
+            '{{game_url}}')
+            console.log('Save loaded.');
+          },
+          error: function() {
+            // Send error message to the game
+            document.getElementById('game_window').contentWindow
+            .postMessage({'messageType': 'ERROR', 'info': 'No existing save found.'},
+            '{{game_url}}')
+
+            console.log('No existing save found.');
+          }
+        });
+      }
+
+      function handleSaveRequest(gameState) {
+        // Save given data
+        var data = JSON.stringify(gameState);
+        $.ajax({
+          url: {% url 'game_save_request' %},
+          data: { gameId : '{{game_id}}',
+                gameState : data },
+          error: function() {
+            // Send Error message to the game.
+            document.getElementById('game_window').contentWindow
+            .postMessage({'messageType': 'ERROR', 'info': 'A save could not be created.'},
+            '{{game_url}}')
+            console.log('A save could not be created.');
+          }
+        });
+      }
+
+      function handleScoreRequest(player_score) {
+        //var score = JSON.stringify(player_score)
+        console.log('Score: ' + player_score);
+        $.ajax({
+          url: {% url 'add_highscore' %},
+          data: { gameId : '{{game_id}}',
+                score : player_score },
+          error: function() {
+            // Send Error message to the game.
+            document.getElementById('game_window').contentWindow
+            .postMessage({'messageType': 'ERROR', 'info': 'Highscore could not be uploaded.'},
+            '{{game_url}}')
+            console.log('Highscore could not be uploaded.');
+          }
+        });
+
+      }
+    }); // end of $.ready()
+  </script>
+  </head>
+{% endblock %}
+
+{% block content %}
+
+
+<iframe id='game_window' scrolling='no' src='{{game_url}}' frameborder='0'></iframe>
+{% endblock %}

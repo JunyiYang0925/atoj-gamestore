@@ -1,0 +1,41 @@
+{% extends "base_no_nav.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Login{% endblock %}
+
+{% block header %}
+  {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <div class="col-sm-4"></div>
+
+  <div class="col-sm-4  vertical-center">
+    <h1 class="col-md-12 form-margins page-header">ATOJ-Game Store</h1>
+
+    <div class="col-md-12 form-margins">
+      {{ login_error }}
+    </div>
+
+    <div class="col-md-12 form-margins">
+      {{ form.errors }}
+    </div>
+
+    <div class="col-md-12 form-margins">
+      {{ form.non_field_errors }}
+    </div>
+
+    <form class="col-md-12" method="post" action="">
+      {% csrf_token %}
+      <p><label for="id_username">Username:</label>
+      {{ form.username }}</p>
+      <p><label for="id_password">Password:</label>
+      {{ form.password }}</p>
+      <div>
+        <button class="btn btn-default" type="submit" > Login </button>
+        <a class="btn-default btn"href="{% url 'user_register' %}"> Register </a>
+        <a class="btn btn-default"href="{% url "social:begin" "google-oauth2" %}?next=/">Google+</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

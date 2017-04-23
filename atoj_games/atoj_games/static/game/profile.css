@@ -1,0 +1,78 @@
+.green_button {
+  background: #34d95a;
+  background-image: -webkit-linear-gradient(top, #34d95a, #53b82b);
+  background-image: -moz-linear-gradient(top, #34d95a, #53b82b);
+  background-image: -ms-linear-gradient(top, #34d95a, #53b82b);
+  background-image: -o-linear-gradient(top, #34d95a, #53b82b);
+  background-image: linear-gradient(to bottom, #34d95a, #53b82b);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.green_button a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.green_button:hover {
+  background: #53b82b;
+  background-image: -webkit-linear-gradient(top, #53b82b, #53b82b);
+  background-image: -moz-linear-gradient(top, #53b82b, #53b82b);
+  background-image: -ms-linear-gradient(top, #53b82b, #53b82b);
+  background-image: -o-linear-gradient(top, #53b82b, #53b82b);
+  background-image: linear-gradient(to bottom, #53b82b, #53b82b);
+  text-decoration: none;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.blue_button {
+  background: #d93455;
+  background-image: -webkit-linear-gradient(top, #008CBA, #4256f4);
+  background-image: -moz-linear-gradient(top, #008CBA, #4256f4);
+  background-image: -ms-linear-gradient(top, #008CBA, #4256f4);
+  background-image: -o-linear-gradient(top, #008CBA, #4256f4);
+  background-image: linear-gradient(to bottom, #008CBA, #4256f4);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.blue_button a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.blue_button:hover {
+  background: #b82c7b;
+  background-image: -webkit-linear-gradient(top, #4256f4, #4256f4);
+  background-image: -moz-linear-gradient(top, #4256f4, #4256f4);
+  background-image: -ms-linear-gradient(top, #4256f4, #4256f4);
+  background-image: -o-linear-gradient(top, #4256f4, #008CBA);
+  background-image: linear-gradient(to bottom, #4256f4, #4256f4);
+  text-decoration: none;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.play_game_button {
+  margin-top: 25px;
+}
+
+.game_name {
+  margin-top. 25px;
+  text-align: center;
+}

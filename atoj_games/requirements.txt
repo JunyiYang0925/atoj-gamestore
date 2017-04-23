@@ -1,0 +1,2 @@
+pillow==4.0.0 (Version 4.1.0 might not work)
+social-auth-app-django

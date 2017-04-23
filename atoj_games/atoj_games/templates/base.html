@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}Title template{% endblock %}</title>
+    {% load static from staticfiles %}
+    {% block header %}
+
+      <script type="text/javascript" src="{% static 'jquery-3.1.1.min.js' %}"></script>
+
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap-theme.min.css' %}">
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+
+      <!-- Own css -->
+      <link rel="stylesheet" href="{% static 'base.css' %}">
+
+      <!-- Top menu css -->
+      <link rel="stylesheet" href="{% static 'menu/top_menu.css' %}"
+
+
+    {% endblock %}
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="main_container" class="container-fluid main-container">
+      <div id="header">
+        {% include 'top_menu.html' %}
+      </div>
+      <div id="content">
+        {% block content %}
+          You must use the template tag <code>block</code> with a block name
+          <code>content</code> in your own templates to put content to this area.
+        {% endblock %}
+      </div>
+
+    <!-- FOOTER -->
+      <footer id="footer">
+        <p><a href="#">Back to top</a></p>
+        <p>&copy; 2017 atoj-game &middot;</p>
+      </footer>
+    </div>
+  </body>
+
+</html>

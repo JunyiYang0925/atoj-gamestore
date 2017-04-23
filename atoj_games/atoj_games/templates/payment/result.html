@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Payment result{% endblock %}
+
+{% block header %}
+  {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<p>Payment result for a purchase of a game: <b> {{ game.name }}</b>.</p>
+<p> {{message}}</p>
+
+<form action={{next_destination}}>
+    <input type='submit' value='Continue' />
+</form>
+
+{% endblock %}

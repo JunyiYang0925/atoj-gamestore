@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Payment details{% endblock %}
+
+{% block content %}
+
+
+{% if game_already_owned %}
+  <p>You already own the game<b> {{ game.name }}<b/> </p>
+  <form action= {{home_page}}>
+    <input type="submit" value="Continue" />
+  </form>
+
+{% else %}
+  <p>You are about to buy game: <b> {{ game.name }}<b/>.</p>
+
+  <form action='https://simplepayments.herokuapp.com/pay/' method='POST'>
+      <input type='hidden' name='pid' value={{pid}} />
+      <input type='hidden' name='sid' value={{sid}} />
+      <input type='hidden' name='success_url'
+              value={{next_url}} />
+      <input type='hidden' name='cancel_url'
+              value={{next_url}} />
+      <input type='hidden' name='error_url'
+              value={{next_url}} />
+      <input type='hidden' name='checksum'
+              value={{checksum}} />
+      <input type='hidden' name='amount' value={{amount}} />
+
+      <label for='id_amount'>Amount</label>
+      <label id='id_amount'> {{amount}} €</label>
+      <input type='submit' value='Proceed to payment'/>
+  </form>
+{% endif %}
+
+
+
+
+{% endblock %}

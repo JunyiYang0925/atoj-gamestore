@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% load static from staticfiles %}
+
+{% block content %}
+<body>
+    <p>User: {{ current_user }}</p>
+    {% if is_developer %}
+    <p>You are a developer</p>
+    <p>Upload a game</p>
+    <form method="POST" enctype="multipart/form-data" action="">{% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="upload">
+    </form>
+    <br><br>
+    <form method="POST" enctype="multipart/form-data" action="">{% csrf_token %}
+      <label for="api_key">Api Key: </label>
+      <div name="api_key">
+        {% if developer.api_key %}{{ developer.api_key }}{% endif %}
+      </div>
+        <button name="refresh" type="submit">Refresh</button>
+    </form>
+    <div>
+        <a href="{% url 'uploaded_games' %}">Uploaded games</a>
+        <a href="{% url 'gamesales' %}">Sold games</a>
+    </div>
+    {% else %}
+    <p>You are not a developer</p>
+    {% endif %}
+    </div>
+</body>
+{% endblock %}

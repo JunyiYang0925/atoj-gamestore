@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="atoj games" version="4">
+  <OBJECT>
+    <ID name="atoj games" mc="Standard.Project" uid="7ab339e8-2e08-4bee-8a21-9dde3b78809b"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[atoj games]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Model">
+        <COMPID name="atoj games" mc="Standard.Package" uid="503ac80b-604c-45e7-9858-20a30fecfb7e"/>
+      </COMP>
+      <COMP relation="DiagramRoot">
+        <COMPID name="atoj games" mc="Infrastructure.DiagramSet" uid="d0c04cf5-3045-438b-ab49-a7f2adfcde2f"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="atoj games" version="4">
+  <OBJECT>
+    <ID name="atoj games" mc="Standard.Package" uid="503ac80b-604c-45e7-9858-20a30fecfb7e"/>
+    <PID name="atoj games" mc="Standard.Project" uid="7ab339e8-2e08-4bee-8a21-9dde3b78809b"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[atoj games]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Player" mc="Standard.Actor" uid="c67aaffc-d46a-46d8-a3c7-49fe967aaba6"/>
+        <COMPID name="Developer" mc="Standard.Actor" uid="2d40ec45-83a6-4d2c-a4a2-a3f268a3bf65"/>
+        <COMPID name="Browse available games" mc="Standard.UseCase" uid="aa1473ba-c42a-4dfd-9e95-d06f9331eb5b"/>
+        <COMPID name="Show only owned games" mc="Standard.UseCase" uid="b08023f2-d2a6-40ea-96d7-09fb8e4e69eb"/>
+        <COMPID name="Play a game" mc="Standard.UseCase" uid="a452bafd-2683-41ed-8535-7cd8698f0b64"/>
+        <COMPID name="Buy a game" mc="Standard.UseCase" uid="117e3146-f047-439b-8aa3-d1bef5b50321"/>
+        <COMPID name="Upload a new game" mc="Standard.UseCase" uid="ff8d7eba-3daa-43c4-a047-56b3183632b3"/>
+        <COMPID name="Payment" mc="Standard.UseCase" uid="4834e3f0-4ee3-490c-84df-1fca91dfd2f0"/>
+        <COMPID name="Load saved game" mc="Standard.UseCase" uid="57e6d19b-cb5d-45d8-a414-18c26b2baacb"/>
+        <COMPID name="Save game" mc="Standard.UseCase" uid="4b43bc28-b807-4184-bf0d-4d4d347c95a8"/>
+        <COMPID name="Register" mc="Standard.UseCase" uid="ebf248b2-130c-42a3-ae8d-0d12ec9400ba"/>
+        <COMPID name="Opt in as developer" mc="Standard.UseCase" uid="9b427f7f-99e6-4c20-9507-a8cd8839c742"/>
+        <COMPID name="Log in / out" mc="Standard.UseCase" uid="31f955e0-ca2b-4fe1-ab52-218831c8e64e"/>
+        <COMPID name="Browse uploaded games" mc="Standard.UseCase" uid="28e540ca-eed9-461d-b594-a61c2260cc66"/>
+        <COMPID name="Show game statistics and sales" mc="Standard.UseCase" uid="238617b8-7d76-4dea-8e65-e690eb01447d"/>
+        <COMPID name="Update existing game" mc="Standard.UseCase" uid="74c76840-f8b3-465b-b6b0-1825a6814907"/>
+        <COMPID name="Use Gmail login" mc="Standard.UseCase" uid="2821e639-4061-4d79-9595-6fd42c75cf43"/>
+        <COMPID name="View highscores" mc="Standard.UseCase" uid="a496678b-c919-4672-88f0-39776289383d"/>
+        <COMPID name="Submit achieved score" mc="Standard.UseCase" uid="c6fb19e4-4923-4581-a391-45dcdd3cd2d5"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="atoj games Use Case diagram" mc="Standard.UseCaseDiagram" uid="4b43aac5-a180-48ed-bb42-51a6605bd33b"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,60 @@
+{% extends "base_no_nav.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Home{% endblock %}
+
+{% block header %}
+  {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <div class="col-sm-4"></div>
+
+  <div class="col-sm-4  vertical-center">
+    <div class="col-md-12 form-margins">
+      {{ form.errors }}
+    </div>
+
+    <div class="col-md-12 form-margins">
+      {{ form.non_field_errors }}
+    </div>
+
+    <form class="col-md-12" method="post" action="">
+      {% csrf_token %}
+      <p class="col-sm-12">
+        <label class="col-sm-4" for="id_username">Username:</label>
+        <span class="col-sm-4" >{{ form.username }}</span>
+      </p>
+      <p class="col-sm-12">
+        <label class="col-sm-4" for="id_password1">Password:</label>
+        <span class="col-sm-4" > {{ form.password1 }}</span>
+      </p>
+      <p class="col-sm-12">
+        <label class="col-sm-4" for="id_password2">Password again:</label>
+        <span class="col-sm-4" >{{ form.password2 }}</span>
+      </p>
+      <p class="col-sm-12">
+        <label class="col-sm-4" for="id_email">Email:</label>
+        <span class="col-sm-4" >{{ form.email }}</span>
+      </p>
+      <p class="col-sm-12">
+        <label class="col-sm-4" for="id_first_name">First Name:</label>
+        <span class="col-sm-4" >{{ form.first_name }}</span>
+      </p>
+      <p class="col-sm-12">
+        <label class="col-sm-4" for="id_last_name">Last Name:</label>
+        <span class="col-sm-4" >{{ form.last_name }}</span>
+      </p>
+      <p class="col-sm-12">
+        <label class="col-sm-4" for="id_is_developer">Opt in as Developer:</label>
+        <span class="col-sm-4" >{{ form.is_developer }}</span>
+      </p>
+      <p class="col-sm-12">
+        <span class="col-sm-4" ></span>
+        <button class="col-sm-4" type="submit" style="margin-left:15px;">Register</button>
+      </p>
+    </form>
+  </div>
+
+  <div class="col-sm-4"></div>
+{% endblock %}

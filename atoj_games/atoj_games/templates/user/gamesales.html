@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Sold Games{% endblock %}
+{% load static from staticfiles %}
+{% block header %}
+  {{ block.super }}
+{% endblock %}
+{% block content %}
+<body>
+  <h3>Sold games</h3>
+
+  <ul>
+  {% for g in sold %}
+    <li>{{ g.name }}</li>
+    <ul>
+      <li> Price: {{ g.price }}</li>
+      <li> Sold: {{ g.amount_sold }}</li>
+    </ul>
+  {% endfor %}
+  </ul>
+
+  <h3>Individual sales </h3>
+
+  <ul>
+  {% for game in sales %}
+    {% for sale in game %}
+      <li>{{ sale.bought_game }}, {{ sale.buyer }}, {{ sale.amount }}, {{ sale.completion_date }}</li>
+    {% endfor %}
+  {% endfor %}
+  </ul>
+
+</body>
+{% endblock %}

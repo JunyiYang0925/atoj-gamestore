@@ -1,0 +1,12 @@
+{% extends "base_no_nav.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Activate{% endblock %}
+
+{% block header %}
+  {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <p>User <b>{{ username }}</b> has been activated.
+{% endblock %}

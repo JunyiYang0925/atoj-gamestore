@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Uploaded Games{% endblock %}
+{% load static from staticfiles %}
+{% block header %}
+  {{ block.super }}
+{% endblock %}
+{% block content %}
+<body>
+
+  <form method="GET" action="/uploaded_games/" id="game_select">
+    <select name='selected_game' form="game_select">
+      {% for game in game_list.all %}
+        <option value={{game.id}}>{{game.name}}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" value="Select">
+  </form>
+
+  {% if form %}
+    {% if is_developer %}
+      <form method="POST" enctype="multipart/form-data" action="">{% csrf_token %}
+          <input name="game_id" type="hidden" value={{selected_game}}>
+          {{form.as_p}}
+          <input type="submit" value="Save changes">
+
+      </form>
+    {% endif %}
+
+  {% else %}
+
+  {% endif %}
+
+</body>
+{% endblock %}

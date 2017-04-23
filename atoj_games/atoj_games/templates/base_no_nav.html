@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Title template{% endblock %}</title>
+    {% load static from staticfiles %}
+    {% block header %}
+
+    <script type="text/javascript" src="{% static 'jquery-3.1.1.min.js' %}"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap-theme.min.css' %}">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Own css -->
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+
+    <!-- Top menu css -->
+    <link rel="stylesheet" href="{% static 'menu/top_menu.css' %}"
+
+
+          {% endblock %}
+</head>
+<body>
+
+{% block content %}
+You must use the template tag <code>block</code> with a block name
+<code>content</code> in your own templates to put content to this area.
+{% endblock %}
+</div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %}{{ game.name }}{% endblock %}
+
+{% block header %}
+  {{ block.super }}
+
+  <!-- Own css -->
+  <link rel="stylesheet" href="{% static 'game/profile.css' %}">
+  <!-- Sharing "advertising" content on facebook-->
+  <meta property="og:url"   content="{{request.build_absolute_uri}}" />
+  <meta property="og:type"  content="website" />
+  <meta property="og:title" content="{{game.name}}" />
+  <meta property="og:image" content="{{request.get_host}}{% static game.image %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <img class="col-md-12" src="{% static game.image %}"></img>
+    <h2 class="game_name col-md-8"> {{ game.name }}</h2>
+
+    {% if can_play %}
+      <div class="play_game_button blue_button col-md-2">
+        <a href="{% url 'play_game' game.id %}">Play</a>
+      </div>
+    {% else %}
+      <div class="play_game_button green_button col-md-2">
+        <a href="{% url 'payment_process' game.id %}">Buy</a>
+      </div>
+    {% endif %}
+
+    <h3 class="game_name col-md-8"> Price: {{ game.price }}€</h3>
+
+    <div class="fb-share-button" data-href="{{request.build_absolute_uri}}" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
+  </div>
+  <div class="col-md-3"></div>
+{% endblock %}

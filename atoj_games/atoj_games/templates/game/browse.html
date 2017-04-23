@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Browse Games{% endblock %}
+
+{% block header %}
+  {{ block.super }}
+
+  <!-- Own css -->
+  <link rel="stylesheet" href="{% static 'game/browse.css' %}">
+
+{% endblock %}
+
+{% block content %}
+  <form method="GET" action="">
+      <input type="text" name="query" placeholder="Search Games" value="{{request.GET.query}}">
+      <input type="submit" value="Search">
+    </form>
+  <ul id="games_list">
+    {% for game in games %}
+    <li class="row">
+      <img width="50" height="50" src="{% static game.image %}" class="col-md-2"></img>
+      <div class="col-md-6"><h3 class="game_name">
+        <a href="{% url 'game_profile' game.id %}">{{ game.name }}</a>
+      </h3></div>
+      <div class="col-md-2 {% if game.has_bought %} blue_button {% else %} green_button {% endif %}">
+        {% if game.has_bought %}
+          <a href="{% url 'play_game' game.id %}">Play</a>
+        {% else %}
+          <a href="{% url 'payment_process' game.id %}">Buy</a>
+        {% endif %}
+      </div>
+      {% if not game.has_bought %}
+        <h3 class="col-md-2">{{ game.price }}€</h3>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
